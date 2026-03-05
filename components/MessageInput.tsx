@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 
 export default function MessageInput({
                                          conversationId,
@@ -19,7 +20,7 @@ export default function MessageInput({
         if (!text.trim()) return;
 
         await sendMessage({
-            conversationId,
+            conversationId: conversationId as Id<"conversations">,
             text,
         });
 
