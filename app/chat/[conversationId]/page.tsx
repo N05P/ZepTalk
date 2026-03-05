@@ -1,5 +1,6 @@
 import ChatWindow from "@/components/ChatWindow";
 import MessageInput from "@/components/MessageInput";
+import { Id } from "@/convex/_generated/dataModel";
 
 export default async function ChatPage({
                                            params,
@@ -15,7 +16,7 @@ export default async function ChatPage({
     return (
         <div className="flex flex-col h-screen overflow-hidden">
             <div className="flex-1 min-h-0">
-                <ChatWindow conversationId={conversationId} />
+                <ChatWindow conversationId={conversationId as Id<"conversations">} />
             </div>
 
             <MessageInput conversationId={conversationId} />
